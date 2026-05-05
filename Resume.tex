@@ -133,10 +133,10 @@
   \resumeSubHeadingListStart
 
       \resumeSubheading
-      {Software Developer}{Sept 2025 -- Present}
+      {VP Machine Learning}{Sept 2025 -- Present}
       {3D Western}{London, ON}
       \resumeItemListStart
-        \resumeItem{Developing a Dockerized 3D printing pipeline for a 24-printer farm, automating model slicing, orientation, support generation, and printability validation for a free campus printing service.}
+        \resumeItem{Serving as VP of Data/ML, leading a team of developers in model benchmarking and reinforcement learning to optimize a classifier that flags inappropriate 3D models for print approval.}
         \resumeItem{Built data generation workflows for 3D model analysis by scraping assets and creating automated rendering scripts to produce labeled image datasets for AI training.}
       \resumeItemListEnd
 
@@ -161,10 +161,17 @@
     \resumeSubHeadingListStart
 
         \resumeProjectHeading
-        {\textbf{Local AI Platform} $|$ \emph{Docker, Linux, Tailscale, Bifrost, MCP, llama.cpp}}{Apr 2026}
+        {\textbf{Local AI Platform} $|$ \emph{Local LLMs, RAG, docling, Firecrawl, MCP, Open WebUI}}{Apr 2026}
         \resumeItemListStart
-          \resumeItem{Architected a fully dockerized local-first AI stack with secure remote access, hybrid model routing, and custom MCP servers for tool-enabled agent workflows.}
-          \resumeItem{Built course-specific retrieval pipelines by parsing large PDFs, extracting relevant chapters, chunking and embedding content, and grounding agent responses for study workflows.}
+          \resumeItem{Deployed local LLMs (text, vision, speech) with hybrid routing to cloud providers, Firecrawl powered web search, and MCP based agents with custom skills enabling private AI automation without relying on third party APIs.}
+          \resumeItem{Built a document ingestion pipeline using docling to extract text, tables, and formulas from PDFs, with embedding, and reranking into a vector store for precise retrieval-augmented generation in knowledge based workflows.}
+        \resumeItemListEnd
+
+        \resumeProjectHeading
+        {\textbf{Homelab Infrastructure} $|$ \emph{Docker, Linux, Tailscale, Caddy, UFW}}{Apr 2026}
+        \resumeItemListStart
+          \resumeItem{Set up self-hosted services with a centralized Docker Compose infrastructure with automatic TLS and VPN-routed downloading, enabling secure remote access from any network through a single reverse proxy endpoint.}
+          \resumeItem{Hardened the infrastructure by binding admin interfaces to localhost behind the reverse proxy and enforcing a default-deny firewall, eliminating the external attack surface without sacrificing usability.}
         \resumeItemListEnd
 
         \resumeProjectHeading
@@ -181,17 +188,7 @@
           \resumeItem{Developed emotion mismatch detection and adaptive response logic using facial signals and conversational context to improve safety-focused interactions.}
         \resumeItemListEnd
 
-        \resumeProjectHeading
-        {\textbf{EyeCandy} $|$ \emph{TypeScript, FastAPI, Shopify, AR, Snap Spectacles}}{Sept 2025}
-        \resumeItemListStart
-          \resumeItem{Developed an AR shopping workflow that visualizes products on users in real time, winning the \textbf{Snap: Spectacles AR Runner Up Prize} at Hack the North 2025.}
-          \resumeItem{Built product data and 3D asset pipelines that convert storefront inputs into AR-ready experiences for rapid prototyping in a hackathon setting.}
-        \resumeItemListEnd
-
     \resumeSubHeadingListEnd
-
-
-
 
 
 %
@@ -199,12 +196,10 @@
 \section{Technical Skills}
  \begin{itemize}[leftmargin=0.15in, label={}]
     \small{\item{
-        \textbf{Languages}{: Python, TypeScript, JavaScript, C\#, C++, Java, Kotlin, SQL, Bash} \\
-        \textbf{AI Systems \& ML}{: Local/Hybrid LLM Workflows, Agentic Orchestration, MCP, RAG, Computer Vision, PyTorch, TensorFlow, scikit-learn, pandas} \\
-        \textbf{Full-Stack Development}{: React, Next.js, FastAPI, Node.js, REST APIs, MongoDB, Supabase, MySQL} \\
-        \textbf{Infrastructure \& Tools}{: Linux (Arch, Debian), Docker, Git, Tailscale, Cursor, GitHub Copilot, Claude Code, VS Code, Unity3D, Blender, OnShape} \\
-        \textbf{Embedded \& Hardware}{: Arduino, ESP32, Raspberry Pi, PlatformIO, BLE, 3D Printing, CAD Prototyping} \\
-        
+        \textbf{AI Systems \& Agentic Coding}{: Multi-Agent Orchestration, MCP, RAG, Local/Hybrid LLM Workflows, Model Routing, Human-in-the-Loop, Cursor, Copilot, Claude Code, Firecrawl, docling, Bifrost} \\
+        \textbf{Languages, Web \& Data}{: Python, TypeScript, JavaScript, C\#, C++, Java, SQL, Bash, React, Next.js, FastAPI, Node.js, PyTorch, TensorFlow, scikit-learn, pandas} \\
+        \textbf{Infrastructure \& Automation}{: Linux (Arch, Debian), Docker, Tailscale, Git, Caddy, UFW, Server Automation, Remote Access} \\
+        \textbf{Hardware, XR \& Embedded}{: Unity3D, C\#, VR, AR, Arduino, ESP32, Raspberry Pi, PlatformIO, 3D Printing, CAD, OnShape, Blender} \\
     }}
  \end{itemize}
 
