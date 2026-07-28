@@ -1,8 +1,9 @@
-#!/bin/bash
+#!/usr/bin/env bash
 
-DIR="/home/nate/Documents/Resume"
-SESSION_NAME="$1"
+DIR="$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)"
 cd "$DIR" || exit 1
+
+SESSION_NAME="resume-edit"
 
 center_text() {
     local text="$1"
@@ -24,10 +25,23 @@ loading_animation() {
     echo ""
 }
 
+# Use latexmk directly if it's on PATH; otherwise fall back to the Nix flake
+# dev shell (needed on NixOS, where latexmk isn't installed system-wide).
+compile_resume() {
+    if command -v latexmk >/dev/null 2>&1; then
+        latexmk -pdf -interaction=nonstopmode Resume.tex
+    elif command -v nix >/dev/null 2>&1 && [ -f "$DIR/flake.nix" ]; then
+        nix develop "$DIR" --command latexmk -pdf -interaction=nonstopmode Resume.tex
+    else
+        echo "latexmk not found and no Nix flake available to provide it." >&2
+        return 1
+    fi
+}
+
 render_and_open() {
     clear
     center_text "Compiling Resume.tex..."
-    if latexmk -pdf -interaction=nonstopmode Resume.tex; then
+    if compile_resume; then
         center_text "Compilation successful!"
         loading_animation
         xdg-open Resume.pdf
@@ -40,7 +54,7 @@ render_and_open() {
 render_only() {
     clear
     center_text "Compiling Resume.tex..."
-    if latexmk -pdf -interaction=nonstopmode Resume.tex; then
+    if compile_resume; then
         center_text "Compilation successful!"
         loading_animation
     else
@@ -71,8 +85,8 @@ while true; do
         q)
             clear
             echo "Closing session..."
-            if [ -n "$SESSION_NAME" ]; then
-                tmux kill-session -t "$SESSION_NAME"
+            if command -v herdr >/dev/null 2>&1; then
+                herdr session stop "$SESSION_NAME" >/dev/null 2>&1
             fi
             exit 0
             ;;
